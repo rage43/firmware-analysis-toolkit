@@ -12,7 +12,7 @@ fi
 echo "Installing binwalk"
 git clone --depth=1 https://github.com/ReFirmLabs/binwalk.git
 cd binwalk
-
+sed -r 's|master|main|g' deps.sh
 # Temporary fix for sasquatch failing to install (From https://github.com/ReFirmLabs/binwalk/pull/601)
 sed -i 's;\$SUDO ./build.sh;wget https://github.com/devttys0/sasquatch/pull/47.patch \&\& patch -p1 < 47.patch \&\& \$SUDO ./build.sh;' deps.sh
 
